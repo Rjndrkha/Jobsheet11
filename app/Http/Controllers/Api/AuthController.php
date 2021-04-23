@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
    use ApiResponse;
-}
+
 public function register(RegisterRequest $request){
     $validated = $request->validated();
     $user=User::create([
@@ -36,6 +36,7 @@ public function login(LoginRequest $request){
     return $this->apiSuccess([
         'token'=>$token,
         'token_type'=>'Bearer',
-        'user'=>$user;
-    ])
+        'user'=>$user,
+    ]);
+    }
 }
