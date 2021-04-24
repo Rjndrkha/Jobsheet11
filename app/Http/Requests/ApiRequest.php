@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Traits\ApiResponse;
 
 abstract class ApiRequest extends FormRequest
 {
