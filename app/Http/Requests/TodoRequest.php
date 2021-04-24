@@ -13,10 +13,10 @@ class TodoRequest extends ApiRequest
      */
     public function authorize()
     {
-        if($this->method()=Request::METHOD_POST)
+        if($this->method()==Request::METHOD_POST)
             return true;
         $todo=$this->route('todo');
-        return auth()->user()->id=$todo->user_id;
+        return auth()->user()->id==$todo->user_id;
     }
 
     /**

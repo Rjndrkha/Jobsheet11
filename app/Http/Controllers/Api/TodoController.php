@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Todo;
-use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponse;
+use illuminate\Http\Response;
+use App\Http\Requests\TodoRequest;
+use App\Http\Requests\ApiRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
 class TodoController extends Controller
 {
@@ -37,6 +42,7 @@ class TodoController extends Controller
         $todo = new Todo($request->all());
         $todo->user()->associate($user);
         $todo->save();
+        return $this->apiSuccess($todo->load('user'));
     }
 
     /**

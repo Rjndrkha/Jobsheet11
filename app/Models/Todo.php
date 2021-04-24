@@ -19,7 +19,7 @@ class Todo extends Model
         'user_id',
         
     ];
-    protected  $$casts= [
+    protected  $casts= [
         'done'=>'boolean',
         
     ];
